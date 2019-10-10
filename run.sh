@@ -1,10 +1,10 @@
 #!/bin/bash
 
-##########################################################################
-##									##
-## 			update and install necessities			##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        update and install necessities                ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 yes | sudo apt update
 yes | sudo apt install git wget curl htop make cmake tree
@@ -27,31 +27,31 @@ sudo tar -C /usr/local -xzf "go${version}.linux-amd64.tar.gz"
 
 echo "IMPORTANT: Please check your zshrc for this line:"
 echo "\"export PATH=$PATH:/usr/local/go/bin\". Add or remove it depending on whether you installed golang!"
-echo "THIS HAS NOT BEEN AUTOMATED YET"
+echo "THIS HAS NOT BEEN AUTOMATED YET\n"
 
-##########################################################################
-##									##
-## 			install google-chrome				##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        install google-chrome                         ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 yes | sudo apt install ./google-chrome*.deb
 rm -f ./google-chrome*.deb
 
-##########################################################################
-##									##
-## 			kde use dark-theme				##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        set kde theme breeze-dark                     ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 lookandfeeltool -a 'org.kde.breezedark.desktop'
 
-##########################################################################
-##									##
-## 			zsh & oh-my-zsh					##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        zsh & oh-my-zsh                               ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 yes | sudo apt install zsh
 chsh -s $(which zsh)
@@ -61,21 +61,21 @@ sh install.sh
 rm -f ./install.sh
 cp zshrc_template ~/.zshrc
 
-##########################################################################
-##									##
-## 		tlp (power management for laptops)			##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        tlp (power management for laptops)             ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 yes | sudo add-apt-repository ppa:linrunner/tlp
 yes | sudo apt update
 yes | sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms
 
-##########################################################################
-##									##
-## 				telegram				##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        telegram                                      ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 tar -xJvf tsetup*.tar.xz
 rm -f tsetup*.tar.xz
@@ -83,11 +83,11 @@ sudo mv Telegram /opt/telegram
 sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
 /usr/bin/telegram &
 
-##########################################################################
-##									##
-## 		vim (.vimrc, vundle, you-complete-me)			##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        vimrc, vundle, YouCompleteMe                  ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp vimrc_template ~/.vimrc
@@ -102,11 +102,11 @@ cd -
 
 echo "TODO: read user-guide on YouCompleteMe and setup accordingly\n"
 
-##########################################################################
-##									##
-## 				jetbrains				##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                             jetbrains                                ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 ## Toolbox
 
@@ -121,17 +121,8 @@ getLatestUrl
 FILE=$(basename ${URL})
 DEST=$PWD/$FILE
 
-echo ""
-echo -e "\e[94mDownloading Toolbox files \e[39m"
-echo ""
 wget -cO  ${DEST} ${URL} --read-timeout=5 --tries=0
-echo ""
-echo -e "\e[32mDownload complete!\e[39m"
-echo ""
 DIR="/opt/jetbrains-toolbox"
-echo ""
-echo  -e "\e[94mInstalling to $DIR\e[39m"
-echo ""
 if mkdir ${DIR}; then
     tar -xzf ${DEST} -C ${DIR} --strip-components=1
 fi
@@ -151,27 +142,27 @@ echo  -e "\e[32mDone.\e[39m"
 
 echo "Please install clion/intellij/goland/... through toolbox"
 
-##########################################################################
-##									##
-## 			keyboard shortcuts				##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                       keyboard shortcuts                             ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 echo "Please configure keyboard shortcuts manually"
 
-##########################################################################
-##									##
-## 			map capslock to esc				##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                       map capslock to esc                            ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 echo "Please configure capslock esc mapping manually"
 
-##########################################################################
-##									##
-## 			get audio keys to work on lenovo		##
-##									##
-##########################################################################
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                    lenovo X1 fix audio keys                          ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
 echo "if this is a thinkpad x1 carbon gen 7:"
 echo "Add the following to /usr/share/pulseaudio/alsa-mixer/paths/analog-output.conf.common"
@@ -179,9 +170,8 @@ echo "above [Element PCM]:"
 echo "[Element Master]\nswitch = mute\nvolume = ignore"
 
 
-##########################################################################
-##									##
-## 				slock					##
-##									##
-##########################################################################
-
+# echo "##########################################################################"
+# echo "##                                                                      ##"
+# echo "##                    lenovo X1 fix audio keys                          ##"
+# echo "##                                                                      ##"
+# echo "##########################################################################"
