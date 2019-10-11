@@ -6,11 +6,11 @@ echo "##                        update and install necessities                ##
 echo "##                                                                      ##"
 echo "##########################################################################"
 
-yes | sudo apt update
-yes | sudo apt install git wget curl htop make cmake tree
+sudo apt update -y
+sudo apt install git wget curl htop make cmake tree -y
 
 # c/cpp
-yes | sudo apt install gcc clang
+sudo apt install gcc clang -y
 
 # golang
 version="1.13.1"
@@ -36,7 +36,7 @@ echo "##                                                                      ##
 echo "##########################################################################"
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-yes | sudo apt install ./google-chrome*.deb
+sudo apt install ./google-chrome*.deb -y
 rm -f ./google-chrome*.deb
 
 echo "##########################################################################"
@@ -53,7 +53,7 @@ echo "##                        zsh & oh-my-zsh                               ##
 echo "##                                                                      ##"
 echo "##########################################################################"
 
-yes | sudo apt install zsh
+sudo apt install zsh -y
 chsh -s $(which zsh)
 
 curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
@@ -67,9 +67,9 @@ echo "##                        tlp (power management for laptops)             #
 echo "##                                                                      ##"
 echo "##########################################################################"
 
-yes | sudo add-apt-repository ppa:linrunner/tlp
-yes | sudo apt update
-yes | sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms
+sudo add-apt-repository ppa:linrunner/tlp -y
+sudo apt update -y
+sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms -y
 
 echo "##########################################################################"
 echo "##                                                                      ##"
@@ -93,7 +93,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp vimrc_template ~/.vimrc
 vim +PluginInstall +qall
 
-yes | sudo apt install build-essential python3-dev
+sudo apt install build-essential python3-dev -y
 
 cd ~/.vim/bundle/YouCompleteMe
 
