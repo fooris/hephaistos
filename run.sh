@@ -204,5 +204,8 @@ echo "##                                                                      ##
 echo "##                    setup ssh-server		                        ##"
 echo "##                                                                      ##"
 echo "##########################################################################"
+sudo apt install openssh-client
+sudo apt install openssh-server
+sudo vim /etc/ssh/sshd_config
+sudo restart ssh
 
-# TODO
