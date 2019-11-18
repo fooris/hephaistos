@@ -1,5 +1,22 @@
 #!/bin/bash
 
+
+# install updates and necessities
+# 	google-chrome
+#	kde theme dark
+#	zsh & oh-my-zsh
+#	tmux
+#	tlp
+#	telegram
+#	vimrc, vundle, youcompleteme
+#	jetbrains
+#	keyboard shortcuts (TODO)
+#	map capslock to esc (TODO)
+#	lenovo fix audio keys
+#	setup ssh server
+
+mkdir ~/github
+
 echo "##########################################################################"
 echo "##                                                                      ##"
 echo "##                        update and install necessities                ##"
@@ -63,7 +80,18 @@ cp zshrc_template ~/.zshrc
 
 echo "##########################################################################"
 echo "##                                                                      ##"
-echo "##                        tlp (power management for laptops)             ##"
+echo "##                    	tmux			                      ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
+
+sudo apt install tmux
+git clone https://github.com/gpakosz/.tmux.git ~/github/tmux
+ln -s -f ~/github/tmux/.tmux.conf
+cp ~/github/tmux/.tmux.conf.local ~/
+
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                        tlp (power management for laptops)            ##"
 echo "##                                                                      ##"
 echo "##########################################################################"
 
@@ -77,6 +105,7 @@ echo "##                        telegram                                      ##
 echo "##                                                                      ##"
 echo "##########################################################################"
 
+#TODO: download the actual zip, duh
 tar -xJvf tsetup*.tar.xz
 rm -f tsetup*.tar.xz
 sudo mv Telegram /opt/telegram
@@ -170,9 +199,10 @@ echo "Add the following to /usr/share/pulseaudio/alsa-mixer/paths/analog-output.
 echo "above [Element PCM]:"
 echo "[Element Master]\nswitch = mute\nvolume = ignore"
 
+echo "##########################################################################"
+echo "##                                                                      ##"
+echo "##                    setup ssh-server		                        ##"
+echo "##                                                                      ##"
+echo "##########################################################################"
 
-# echo "##########################################################################"
-# echo "##                                                                      ##"
-# echo "##                    lenovo X1 fix audio keys                          ##"
-# echo "##                                                                      ##"
-# echo "##########################################################################"
+# TODO
